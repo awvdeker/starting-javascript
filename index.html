@@ -49,7 +49,20 @@
             </div>
         </div>
         <script>
-            // Write your code here
+            //Write your code here
+
+            //h3 is SECOND CHILD!!!! first child is text node (white space)
+            //so: childnodes[1]
+
+
+            var el = document.getElementById("greetingsBox");
+            var newEl = document.getElementsByClassName("greetingsBoxHolder");
+            var secondChild = newEl[0].childNodes[1];
+            secondChild.innerHTML=el.value;
+
+            console.log(newEl[0].nodeName)
+            console.log(secondChild.nodeName)
+
         </script>
     </div>
     <!-- END OF Part 1 -->
