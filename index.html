@@ -56,12 +56,20 @@
 
 
             var el = document.getElementById("greetingsBox");
+
+            el.addEventListener("keyup",appearInOtherBox);
+
             var newEl = document.getElementsByClassName("greetingsBoxHolder");
             var secondChild = newEl[0].childNodes[1];
-            secondChild.innerHTML=el.value;
 
-            console.log(newEl[0].nodeName)
-            console.log(secondChild.nodeName)
+            function appearInOtherBox(){
+              secondChild.innerHTML=el.value;
+              if (el.value==""){
+                secondChild.innerHTML="No inspiration my dear?";
+              }
+
+            }
+
 
         </script>
     </div>
