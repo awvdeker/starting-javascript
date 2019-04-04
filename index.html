@@ -67,7 +67,6 @@
               if (el.value==""){
                 secondChild.innerHTML="No inspiration my dear?";
               }
-
             }
 
 
@@ -112,6 +111,60 @@
         </div>
         <script>
             // Write your code here
+            // Get the input field
+
+
+          var inputName = document.getElementById("name");
+          var inputPizza = document.getElementById("pizza");
+          var inputSize = document.getElementById("size");
+          var inputRemarks = document.getElementById("remarks");
+
+          // Execute a function when the user releases a key on the keyboard
+          //inputName.addEventListener("keyup", checkEnterAndFilled(event));
+          //inputPizza.addEventListener("keyup", checkEnterAndFilled(event));
+          //inputSize.addEventListener("keyup", checkEnterAndFilled(event));
+          //inputRemarks.addEventListener("keyup", checkEnterAndFilled(event));
+
+inputRemarks.addEventListener("keyup", function(event){
+
+          //function checkEnterAndFilled(a){
+          // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+              if ((inputName.value!="")&&(inputPizza.value!="")&&(inputSize.value!="")){
+                //add row
+                addRow();
+                alert("it works");
+              }else {
+                // pop up met toastr
+              }
+            }
+          });
+
+          var emptyRow=document.getElementById("emptyRow");
+
+          function addRow (){
+            var newRow=document.createElement("tr");
+
+            var cellName=document.createElement("td");
+            cellName.innerHTML=inputName.value;
+            newRow.appendChild(cellName);
+
+            var cellPizza=document.createElement("td");
+            cellPizza.innerHTML=inputPizza.value;
+            newRow.appendChild(cellPizza);
+
+            var cellSize=document.createElement("td");
+            cellSize.innerHTML=inputSize.value;
+            newRow.appendChild(cellSize);
+
+            var cellRemarks=document.createElement("td");
+            cellRemarks.innerHTML=inputRemarks.value;
+            newRow.appendChild(cellRemarks);
+
+            emptyRow.parentNode.insertBefore(newRow,emptyRow);
+          }
+
+
         </script>
     </div>
     <!-- END OF Part 2 -->
