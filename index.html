@@ -125,29 +125,27 @@
           var inputRemarks = document.getElementById("remarks");
 
           // Execute a function when the user releases a key on the keyboard
-          //inputName.addEventListener("keyup", checkEnterAndFilled(event));
-          //inputPizza.addEventListener("keyup", checkEnterAndFilled(event));
-          //inputSize.addEventListener("keyup", checkEnterAndFilled(event));
-          //inputRemarks.addEventListener("keyup", checkEnterAndFilled(event));
+          inputName.addEventListener("keyup", checkEnterAndFilled);
+          inputPizza.addEventListener("keyup", checkEnterAndFilled);
+          inputSize.addEventListener("keyup", checkEnterAndFilled);
+          inputRemarks.addEventListener("keyup", checkEnterAndFilled);
 
-inputRemarks.addEventListener("keyup", function(event){
-
-          //function checkEnterAndFilled(a){
+          function checkEnterAndFilled(){
           // Number 13 is the "Enter" key on the keyboard
+
             if (event.keyCode === 13) {
               if ((inputName.value!="")&&(inputPizza.value!="")&&(inputSize.value!="")){
                 //add row
                 addRow();
-                alert("it works");
               }else {
                 // pop up met toastr
               }
             }
-          });
-
-          var emptyRow=document.getElementById("emptyRow");
+          }
 
           function addRow (){
+
+            var emptyRow=document.getElementById("emptyRow");
             var newRow=document.createElement("tr");
 
             var cellName=document.createElement("td");
