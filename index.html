@@ -241,8 +241,19 @@
             inputField.placeholder=spanArray[3].innerHTML;
             itemArray[3].innerHTML="";
             itemArray[3].appendChild(inputField);
+
             for (let i = 3; i >= 0; i--){
               parag.removeChild(spanArray[i]);
+            }
+
+            inputField.addEventListener("focusout",changeToLI);
+
+            function changeToLI () {
+              if (this.value != ""){
+                var a = this.value;
+                itemArray[3].removeChild(this);
+                itemArray[3].innerHTML=a;
+              }
             }
           }
 
