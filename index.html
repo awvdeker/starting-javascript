@@ -222,24 +222,29 @@
         </div>
         <script>
             // Write your code here
-          var parag = document.getElementById("listHolder");
-          var spanArray = parag.getElementsByTagName("span");
-          var newUL = document.createElement("ul");
-          parag.appendChild(newUL);
-          var itemArray = new Array(4);
-          for (let i=0;i<spanArray.length;i++){
-            itemArray[i] = document.createElement("li");
-            itemArray[i].innerHTML = spanArray[i].innerHTML;
-            newUL.appendChild(itemArray[i]);
-          }
-          var inputField = document.createElement("input");
-          inputField.placeholder=spanArray[3].innerHTML;
-          itemArray[3].innerHTML="";
-          itemArray[3].appendChild(inputField);
-          for (let i = 3; i >= 0; i--){
-            parag.removeChild(spanArray[i]);
-          }
 
+          var grabButton = document.getElementById("launchMe");
+          grabButton.addEventListener("click",transformation);
+
+          function transformation () {
+            var parag = document.getElementById("listHolder");
+            var spanArray = parag.getElementsByTagName("span");
+            var newUL = document.createElement("ul");
+            parag.appendChild(newUL);
+            var itemArray = new Array(4);
+            for (let i=0;i<spanArray.length;i++){
+              itemArray[i] = document.createElement("li");
+              itemArray[i].innerHTML = spanArray[i].innerHTML;
+              newUL.appendChild(itemArray[i]);
+            }
+            var inputField = document.createElement("input");
+            inputField.placeholder=spanArray[3].innerHTML;
+            itemArray[3].innerHTML="";
+            itemArray[3].appendChild(inputField);
+            for (let i = 3; i >= 0; i--){
+              parag.removeChild(spanArray[i]);
+            }
+          }
 
         </script>
     </div>
