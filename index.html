@@ -112,13 +112,6 @@
         <script>
             // Write your code here
 
-//tip van Bruce: pas de keyup listener met (event) toe op de tr/emptyRow
-//niet 4 keer, gewoon 1 keer toeopassen op de rij
-//toastr: zie website
-//button met kruisje, maak zelf button met een 'X' en addEventListener met
-//zodat rij verwijderd wordt
-
-
           var inputName = document.getElementById("name");
           var inputPizza = document.getElementById("pizza");
           var inputSize = document.getElementById("size");
@@ -229,6 +222,25 @@
         </div>
         <script>
             // Write your code here
+          var parag = document.getElementById("listHolder");
+          var spanArray = parag.getElementsByTagName("span");
+          var newUL = document.createElement("ul");
+          parag.appendChild(newUL);
+          var itemArray = new Array(4);
+          for (let i=0;i<spanArray.length;i++){
+            itemArray[i] = document.createElement("li");
+            itemArray[i].innerHTML = spanArray[i].innerHTML;
+            newUL.appendChild(itemArray[i]);
+          }
+          var inputField = document.createElement("input");
+          inputField.placeholder=spanArray[3].innerHTML;
+          itemArray[3].innerHTML="";
+          itemArray[3].appendChild(inputField);
+          for (let i = 3; i >= 0; i--){
+            parag.removeChild(spanArray[i]);
+          }
+
+
         </script>
     </div>
     <!-- END OF Part 3 -->
