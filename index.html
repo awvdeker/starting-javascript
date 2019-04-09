@@ -183,20 +183,21 @@
             cellRemarks.innerHTML=inputRemarks.value;
 
             var buttonCross=document.createElement("button");
-            buttonCross.classList.toggle="buttonCross";
-            //hier nog code toevoegen..., button moet uiterst rechts in cel staan!!!
+            buttonCross.classList.add("buttonCross","float-right"); //uiterst rechts in cel
+            buttonCross.innerHTML="X";
+            cellRemarks.appendChild(buttonCross);
 
             newRow.appendChild(cellRemarks);
 
             emptyRow.parentNode.insertBefore(newRow,emptyRow);
+
+            var buttonCrossElements = newRow.getElementsByClassName("buttonCross");
+            buttonCrossElements[0].addEventListener("click",deleteRow);
+
           }
 
-          document.getElementsByClassName("buttonCross").addEventListener("click",deleteRow);
-          //werkt dit voor een array aan classes en wordt enkel de geklikte rij verwijderd?
-
           function deleteRow(){
-            //code schrijven
-
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
           }
 
         </script>
