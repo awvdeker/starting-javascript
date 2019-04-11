@@ -444,15 +444,15 @@
         <script>
             // Write your code here
           var input = document.getElementById("searchInput");
+          var table = document.getElementById("searchTable");
+          var tr = table.getElementsByTagName("tr");
           input.addEventListener("keyup",search);
 
           function search() {
             // Declare variables
-            var filter, table, tr, td, i, txtValue;
+            var filter, td, i, txtValue;
 
             filter = input.value.toUpperCase();
-            table = document.getElementById("searchTable");
-            tr = table.getElementsByTagName("tr");
 
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
@@ -468,9 +468,63 @@
             }
           }
 
+
+          var thList = table.getElementsByTagName('th');
+          var checkboxList = new Array(thList.length);
+          for (let i=0; i < thList.length ; i++){
+            checkboxList[i]=document.createElement('input');
+            checkboxList[i].type="checkbox";
+            checkboxList[i].checked=true;
+            checkboxList[i].classList.add("float-right","mt-1");
+            checkboxList[i].id="checkbox"+i;
+            thList[i].appendChild(checkboxList[i]);
+            checkboxList[i].addEventListener('click',removeColumn)
+          }
+          function removeColumn(){
+            var columnNumber;
+            switch (this.id) {
+              case "checkbox0":
+                columnNumber=0;
+                break;
+              case "checkbox1":
+                columnNumber=1;
+                break;
+              case "checkbox2":
+                columnNumber=2;
+                break;
+              case "checkbox3":
+                columnNumber=3;
+                break;
+              case "checkbox4":
+                columnNumber=4;
+                break;
+              case "checkbox5":
+                columnNumber=5;
+                break;
+              default:
+            }
+
+
+            if (this.checked == true){
+              for (i = 0; i < tr.length; i++) {
+                var tdata = tr[i].getElementsByTagName("td");
+                if (tdata[0]) {
+                  tdata[columnNumber].style.display="";
+                }
+              }
+            } else {
+              for (i = 0; i < tr.length; i++) {
+                var tdata = tr[i].getElementsByTagName("td");
+                if (tdata[0]) {
+                  tdata[columnNumber].style.display="none";
+                }
+              }
+            }
+          }
+
           //<input type="checkbox" checked class="float-right" id="myCheck">
 
-          //thead -> getElementsByClassName("th");
+          //thead -> getElementsByTagName("th");
 
           //var checkBox = document.getElementById("myCheck");
           //checkBox.addEventListener("click",deleteColumn);
