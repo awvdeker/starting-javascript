@@ -577,6 +577,18 @@
         </div>
         <script>
             // Write your code here
+            var block = document.getElementById('followMouse');
+            block.style.position="relative";
+            block.style.left=0;
+            document.addEventListener('mousemove', followMouseHorizontally);
+
+            function followMouseHorizontally(){
+              var movement = event.pageX;
+              console.log(movement);
+              block.style.left=movement+"px";
+            }
+
+
         </script>
     </div>
     <!-- END OF Part 6 -->
