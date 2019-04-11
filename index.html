@@ -540,11 +540,18 @@
           var movingDiv = document.getElementById("moveAnimation");
           movingDiv.style.position="relative";
           movingDiv.style.left=0;
-          movingDiv.style.transition='all 2s linear';
-          setTimeout(function(){
-            movingDiv.style.left='100%';
-          },100);
-
+          setInterval(function(){
+            movingDiv.style.transition='all 2s linear';
+            setTimeout(function(){
+              movingDiv.style.left='100%';
+              setTimeout(function(){
+                movingDiv.style.transition='all 5s linear';
+                setTimeout(function(){
+                  movingDiv.style.left=0;
+                },100);
+              },2000);
+            },100);
+          },7200);
 
         </script>
     </div>
