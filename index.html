@@ -468,7 +468,6 @@
             }
           }
 
-
           var thList = table.getElementsByTagName('th');
           var checkboxList = new Array(thList.length);
           for (let i=0; i < thList.length ; i++){
@@ -522,22 +521,6 @@
             }
           }
 
-          //<input type="checkbox" checked class="float-right" id="myCheck">
-
-          //thead -> getElementsByTagName("th");
-
-          //var checkBox = document.getElementById("myCheck");
-          //checkBox.addEventListener("click",deleteColumn);
-          //
-          //function deleteColumn (){
-          //
-          //  if (this.checked == true){
-          //    text.style.display = "block";
-          //  } else {
-          //    text.style.display = "none";
-          //  }
-          //}
-
         </script>
     </div>
     <!-- END OF Part 4 -->
@@ -554,6 +537,15 @@
         </div>
         <script>
             // Write your code here
+          var movingDiv = document.getElementById("moveAnimation");
+          movingDiv.style.position="relative";
+          movingDiv.style.left=0;
+          movingDiv.style.transition='all 2s linear';
+          setTimeout(function(){
+            movingDiv.style.left='100%';
+          },100);
+
+
         </script>
     </div>
     <!-- END OF Part 5 -->
