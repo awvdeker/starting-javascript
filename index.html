@@ -540,18 +540,26 @@
           var movingDiv = document.getElementById("moveAnimation");
           movingDiv.style.position="relative";
           movingDiv.style.left=0;
-          setInterval(function(){
+          goRight();
+          function goRight(){
             movingDiv.style.transition='all 2s linear';
             setTimeout(function(){
               movingDiv.style.left='100%';
               setTimeout(function(){
-                movingDiv.style.transition='all 5s linear';
-                setTimeout(function(){
-                  movingDiv.style.left=0;
-                },100);
+                goLeft();
               },2000);
             },100);
-          },7200);
+          }
+
+          function goLeft(){
+            movingDiv.style.transition='all 5s linear';
+            setTimeout(function(){
+              movingDiv.style.left=0;
+              setTimeout(function(){
+                goRight();
+              },5000);
+            },100);
+          }
 
         </script>
     </div>
