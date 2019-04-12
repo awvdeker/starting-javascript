@@ -580,12 +580,19 @@
             var block = document.getElementById('followMouse');
             block.style.position="relative";
             block.style.left=0;
+            var deviation=block.offsetParent.offsetLeft;
+            var deviationRight=block.parentNode.clientWidth-block.clientWidth;
             document.addEventListener('mousemove', followMouseHorizontally);
 
             function followMouseHorizontally(){
               var movement = event.pageX;
-              console.log(movement);
-              block.style.left=movement+"px";
+              if (movement<=deviation){
+                block.style.left=0;
+              } else if (movement>(deviation+deviationRight)){
+                block.style.left='100%';
+              } else {
+                block.style.left=(movement-deviation)+"px";
+              }
             }
 
 
