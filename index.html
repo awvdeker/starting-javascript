@@ -613,6 +613,54 @@
         </div>
         <script>
             // Write your code here
+
+            var parag = document.createElement('p');
+            parag.innerHTML="Enter your first name:";
+            var target = document.getElementById("target");
+            target.appendChild(parag);
+            var inputBox= document.createElement('input');
+            target.appendChild(inputBox);
+            var buttonLetter=document.createElement('button');
+            buttonLetter.innerHTML="Add letter."
+            inputBox.addEventListener('focus',createButton);
+
+            function createButton(){
+              target.appendChild(buttonLetter);
+              buttonLetter.addEventListener('click',addLetter);
+              createSlider();
+              inputBox.removeEventListener('focus',createButton);
+            }
+
+            function createSlider(){
+              var sliderDiv = document.createElement("div");
+              target.insertBefore(sliderDiv,buttonLetter);
+              var sliderSpan = document.createElement('span');
+              sliderDiv.appendChild(sliderSpan);
+              sliderSpan.innerHTML = "A";
+              var sliderInput = document.createElement("input");
+              sliderInput.type="range";
+              sliderInput.min="0";
+              sliderInput.max="25";
+              sliderInput.value="0";
+              sliderDiv.appendChild(sliderInput);
+
+                    // Update the current slider value (each time you drag the slider handle)
+              sliderInput.oninput = function() {
+                sliderSpan.innerHTML = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[this.value];
+              };
+
+              ///tot hier slider
+            }
+
+            function addLetter(){
+
+              //letter van laatste slider gaat naar inputBox
+
+              createSlider();
+
+            }
+
+
         </script>
     </div>
     <!-- END OF Part 7 -->
