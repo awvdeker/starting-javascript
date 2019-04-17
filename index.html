@@ -614,9 +614,13 @@
         <script>
             // Write your code here
 
+          sliderUserInterface ("target");
+
+          function sliderUserInterface (a) {
+
             var parag = document.createElement('p');
             parag.innerHTML="Enter your first name:";
-            var target = document.getElementById("target");
+            var target = document.getElementById(a);
             target.appendChild(parag);
             var inputBox= document.createElement('input');
             target.appendChild(inputBox);
@@ -661,6 +665,7 @@
               createSlider();
             }
 
+          }
         </script>
     </div>
     <!-- END OF Part 7 -->
@@ -677,6 +682,7 @@
         </div>
         <script>
             // You can put at most one line here
+            sliderUserInterface("target2");
         </script>
     </div>
     <!-- END OF Part 8 -->
