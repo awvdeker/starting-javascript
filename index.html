@@ -643,23 +643,23 @@
               sliderInput.max="25";
               sliderInput.value="0";
               sliderDiv.appendChild(sliderInput);
+                // Update the current slider value (each time you drag the slider handle)
 
-                    // Update the current slider value (each time you drag the slider handle)
-              sliderInput.oninput = function() {
-                sliderSpan.innerHTML = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[this.value];
-              };
-
-              ///tot hier slider
+              sliderInput.addEventListener("input",chooseLetter);
+              function chooseLetter (){
+                var chosenLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[this.value];
+                sliderSpan.innerHTML = chosenLetter;
+              }
             }
 
             function addLetter(){
+                //letter van laatste slider gaat naar inputBox
 
-              //letter van laatste slider gaat naar inputBox
+              var lastSliderInput = target.lastChild.previousSibling.lastChild;
+              inputBox.value=inputBox.value+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[lastSliderInput.value];
 
               createSlider();
-
             }
-
 
         </script>
     </div>
