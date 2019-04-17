@@ -45,6 +45,7 @@ https://awvdeker.github.io/starting-javascript/
 - create button below sliders with document.createElement
 - each slider is <input> element with type='range' and min value 0
 and max value 25
+- basic sliders here, not styled exactly as the example
 - functions: createButton, createSlider, addLetter
 
 ## part 8
