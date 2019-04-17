@@ -1,6 +1,10 @@
 Fix me! - Execercise
 ====================
 
+published at:
+
+https://awvdeker.github.io/starting-javascript/
+
 ## part 1
 
 - h3 was a SECOND child, first child is text node (white space)!! so: childnodes[1]
