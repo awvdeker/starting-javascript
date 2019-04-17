@@ -206,7 +206,7 @@
                 <li>Fix it up so that it is an actual HTML list</li>
                 <li>Make it so the user can type what he / she wants in the final option</li>
                 <li>Launch the above transformation once the button (#launchMe) is pushed</li>
-                <li class="bonus">"Choose your final ingredient" should be placed as placeholder text in the input when it's empty</li>
+                <li class="bonus">"C/hoose your final ingredient" should be placed as placeholder text in the input when it's empty</li>
                 <li class="bonus">When you go away from the input (click somewhere else), if the input is not empty, it should change into a regular LI item with the content of the input</li>
             </ul>
             </p>
@@ -456,15 +456,19 @@
 
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
+
               td = tr[i].getElementsByTagName("td")[0];
+
               if (td) {
-                txtValue = td.textContent || td.innerText;
+                //txtValue = tdCell.textContent || tdCell.innerText;
+                txtValue = tr[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                   tr[i].style.display = "";
                 } else {
                   tr[i].style.display = "none";
                 }
               }
+
             }
           }
 
