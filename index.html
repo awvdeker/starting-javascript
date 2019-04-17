@@ -509,6 +509,8 @@
 
 
             if (this.checked == true){
+              var theader = tr[0].getElementsByTagName("th");
+              theader[columnNumber].style.display="";
               for (i = 0; i < tr.length; i++) {
                 var tdata = tr[i].getElementsByTagName("td");
                 if (tdata[0]) {
@@ -516,6 +518,8 @@
                 }
               }
             } else {
+              var theader = tr[0].getElementsByTagName("th");
+              theader[columnNumber].style.display="none";
               for (i = 0; i < tr.length; i++) {
                 var tdata = tr[i].getElementsByTagName("td");
                 if (tdata[0]) {
